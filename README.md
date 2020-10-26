@@ -9,3 +9,4 @@ Demo: https://editor.p5js.org/praem90/full/3-mwrydPX
 - [ ] Add colors to the elements
 - [ ] Add milestones and cheers
 - [ ] Speedup || Level up after each milestone completion
+- [ ] Add mobile support
