@@ -3,12 +3,17 @@ var snack;
 var opponents;
 var crashSound;
 
+function preload() {
+  soundFormats('mp3', 'ogg');
+  crashSound = loadSound("sounds/car-crash-sound-effect.mp3");
+  crashSound.setLoop(false);
+}
+
 function setup() {
   createCanvas(300, 500);
 
   snack = new Snack({size: 50});
   opponents = new Opponents(speed);
-  crashSound = loadSound("https://www.freesoundslibrary.com/wp-content/uploads/2020/01/car-crash-sound-effect.mp3");
 }
 
 function draw() {
@@ -26,11 +31,6 @@ function draw() {
   fill(111);
   text("Speed: " + speed, 20, 40);
 
-  if (opponents.isCrashed(snack) || snack.isCrashed()) {
-    crashSound.play();
-    reset();
-  }
-
   if (mouseIsPressed) {
     onMousePressed();
   }
@@ -38,10 +38,15 @@ function draw() {
   onKeyPressed();
 
   snack.draw();
+
+  if (opponents.isCrashed(snack) || snack.isCrashed()) {
+    reset();
+  }
 }
 
 function reset() {
     opponents.reset();
+    crashSound.play();
 }
 
 function onMousePressed() {
