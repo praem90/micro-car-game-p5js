@@ -28,7 +28,7 @@ function draw() {
     reset();
   }
 
-  if (mouseIsPressed || touches.length) {
+  if (mouseIsPressed) {
     onMousePressed();
   }
 
