@@ -1,4 +1,3 @@
-var xMag = 0;
 var speed = 1;
 var snack;
 var opponents;
@@ -29,27 +28,34 @@ function draw() {
     reset();
   }
 
-  snack.x += xMag;
+  if (mouseIsPressed) {
+    onMousePressed();
+  }
+
+  onKeyPressed();
 
   snack.draw();
 }
 
 function reset() {
     opponents.reset();
-    xMag = 0;
 }
 
-function keyPressed() {
-  if (keyCode === LEFT_ARROW) {
-    xMag = -speed;
-  }
-
-  if (keyCode === RIGHT_ARROW) {
-    xMag = speed;
+function onMousePressed() {
+  if (mouseX < width/2) {
+    console.log("Moving left");
+  } else {
+    snack.moveRight(speed);
   }
 }
 
-function keyReleased() {
-  xMag = 0;
+function onKeyPressed() {
+  if (keyIsDown(LEFT_ARROW)) {
+    snack.moveLeft(speed);
+  }
+
+  if (keyIsDown(RIGHT_ARROW)) {
+    snack.moveRight(speed);
+  }
 }
 

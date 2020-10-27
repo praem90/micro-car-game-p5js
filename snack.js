@@ -25,12 +25,15 @@ class Snack {
     return false;
   }
 
-  getCenterX() {
-    return Math.floor(this.x + (this.size/2));
+  move(xMag) {
+    this.x += xMag;
   }
 
+  moveRight(xMag) {
+    this.move(xMag);
+  }
 
-  getCenterY() {
-    return Math.floor(this.y + (this.size/2));
+  moveLeft(xMag) {
+    this.move(-xMag);
   }
 }
