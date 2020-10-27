@@ -1,12 +1,14 @@
 var speed = 1;
 var snack;
 var opponents;
+var crashSound;
 
 function setup() {
   createCanvas(300, 500);
 
   snack = new Snack({size: 50});
   opponents = new Opponents(speed);
+  crashSound = loadSound("https://www.freesoundslibrary.com/wp-content/uploads/2020/01/car-crash-sound-effect.mp3");
 }
 
 function draw() {
@@ -25,6 +27,7 @@ function draw() {
   text("Speed: " + speed, 20, 40);
 
   if (opponents.isCrashed(snack) || snack.isCrashed()) {
+    crashSound.play();
     reset();
   }
 
