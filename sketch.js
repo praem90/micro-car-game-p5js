@@ -28,7 +28,7 @@ function draw() {
     reset();
   }
 
-  if (mouseIsPressed) {
+  if (mouseIsPressed || touches.length) {
     onMousePressed();
   }
 
@@ -43,7 +43,7 @@ function reset() {
 
 function onMousePressed() {
   if (mouseX < width/2) {
-    console.log("Moving left");
+    snack.moveLeft(speed);
   } else {
     snack.moveRight(speed);
   }
