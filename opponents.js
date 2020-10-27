@@ -36,6 +36,11 @@ class Opponents {
     }
   }
 
+  setSpeed(speed) {
+    this.speed = speed;
+    return this;
+  }
+
   update() {
     for (let i in this.opponents) {
       this.opponents[i].y += this.speed;

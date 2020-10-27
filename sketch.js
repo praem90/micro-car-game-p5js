@@ -19,8 +19,10 @@ function setup() {
 function draw() {
   background(222);
 
+  updateSpeed();
+
   opponents.addOpponents();
-  opponents.update();
+  opponents.setSpeed(speed).update();
 
   textSize(16);
   fill(111);
@@ -46,7 +48,21 @@ function draw() {
 
 function reset() {
     opponents.reset();
+    speed = 0;
     crashSound.play();
+}
+
+function updateSpeed() {
+  if (opponents.count > 10) {
+    speed = 2;
+  }
+
+  if (opponents.count > 20 && speed < 4) {
+    speed = 4;
+  }
+  if (opponents.count > 40 && speed < 6) {
+    speed = 6;
+  }
 }
 
 function onMousePressed() {
