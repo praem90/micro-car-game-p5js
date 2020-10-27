@@ -48,7 +48,7 @@ function draw() {
 
 function reset() {
     opponents.reset();
-    speed = 0;
+    speed = 1;
     crashSound.play();
 }
 
