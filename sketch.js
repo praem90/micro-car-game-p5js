@@ -2,6 +2,7 @@ var speed = 1;
 var snack;
 var opponents;
 var crashSound;
+var slider;
 
 function preload() {
   soundFormats('mp3', 'ogg');
@@ -10,8 +11,12 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(300, 500);
+  const canvas = createCanvas(300, 500);
 
+  canvas.parent("canvas");
+  slider = createSlider(1, 6, speed, 1);
+  slider.style("width", "300px");
+  slider.style("margin", "0 auto");
   snack = new Snack({size: 50});
   opponents = new Opponents(speed);
 }
@@ -19,7 +24,11 @@ function setup() {
 function draw() {
   background(222);
 
+  speed = slider.value();
+
   updateSpeed();
+
+  slider.value(speed);
 
   opponents.addOpponents();
   opponents.setSpeed(speed).update();
@@ -53,7 +62,7 @@ function reset() {
 }
 
 function updateSpeed() {
-  if (opponents.count > 10) {
+  if (opponents.count > 10 && speed < 2) {
     speed = 2;
   }
 
