@@ -1,7 +1,8 @@
 # micro-car-game-p5js
 Hand video game simulation using [P5js](https://editor.p5js.org/) Processing. 
 
-Demo: https://editor.p5js.org/praem90/full/3-mwrydPX
+Demo:https://praem90.github.io/micro-car-game-p5js/
+Sketch: https://editor.p5js.org/praem90/full/3-mwrydPX
 
 ### How to play?
  - Game starts when the page loads
@@ -14,5 +15,5 @@ Demo: https://editor.p5js.org/praem90/full/3-mwrydPX
 - [ ] Add different shapes to elements
 - [ ] Add colors to the elements
 - [ ] Add milestones and cheers
-- [ ] Speedup || Level up after each milestone completion
-- [ ] Add mobile support
+- [x] Speedup || Level up after each milestone completion
+- [x] Add mobile support
